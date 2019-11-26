@@ -1906,7 +1906,7 @@ public class ActivityManagerService extends IActivityManager.Stub
     static final int SERVICE_TIMEOUT_MSG = 12;
     static final int UPDATE_TIME_ZONE = 13;
     static final int SHOW_UID_ERROR_UI_MSG = 14;
-    static final int SHOW_FINGERPRINT_ERROR_UI_MSG = 15;
+    //static final int SHOW_FINGERPRINT_ERROR_UI_MSG = 15;
     static final int PROC_START_TIMEOUT_MSG = 20;
     static final int KILL_APPLICATION_MSG = 22;
     static final int FINALIZE_PENDING_INTENT_MSG = 23;
@@ -2137,7 +2137,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                     d.show();
                 }
             } break;
-            case SHOW_FINGERPRINT_ERROR_UI_MSG: {
+            /*case SHOW_FINGERPRINT_ERROR_UI_MSG: {
                 if (mShowDialogs) {
                     AlertDialog d = new BaseErrorDialog(mUiContext);
                     d.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ERROR);
@@ -2148,7 +2148,7 @@ public class ActivityManagerService extends IActivityManager.Stub
                             obtainMessage(DISMISS_DIALOG_UI_MSG, d));
                     d.show();
                 }
-            } break;
+            } break;*/
             case SHOW_COMPAT_MODE_DIALOG_UI_MSG: {
                 synchronized (ActivityManagerService.this) {
                     ActivityRecord ar = (ActivityRecord) msg.obj;
@@ -15542,7 +15542,7 @@ public class ActivityManagerService extends IActivityManager.Stub
 
             if (!Build.isBuildConsistent()) {
                 Slog.e(TAG, "Build fingerprint is not consistent, warning user");
-                mUiHandler.obtainMessage(SHOW_FINGERPRINT_ERROR_UI_MSG).sendToTarget();
+                //mUiHandler.obtainMessage(SHOW_FINGERPRINT_ERROR_UI_MSG).sendToTarget();
             }
 
             long ident = Binder.clearCallingIdentity();
